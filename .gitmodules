@@ -1,3 +1,6 @@
 [submodule "adt_send_hw"]
 	path = adt_send_hw
 	url = https://github.com/Rmjp/adt_send_hw.git
+[submodule "ADT"]
+	path = ADT
+	url = https://github.com/Rmjp/ADT.git

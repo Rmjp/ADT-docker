@@ -12,7 +12,7 @@ services:
     networks:
       - vpn_network
     ports:
-    - "8080:3001"
+      - "8081:3001"
     restart: "on-failure:10"
   adt_send_hw:
     build: ./adt_send_hw
@@ -26,7 +26,14 @@ services:
     environment:
       ENV_PATH: /adt_send_hw/.env/adt_send_hw.env
     restart: "on-failure:5"
-    
+  web:
+    build: ./ADT
+    networks:
+      - vpn_network
+    depends_on:
+      - vpn
+    ports:
+      - "8082:3000"
 
 networks:
   vpn_network:

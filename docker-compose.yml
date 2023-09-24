@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  vpn:
+    image: dperson/openvpn-client
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./.env/:/vpn
+    networks:
+      - vpn_network
+
+networks:
+  vpn_network:
+    driver: bridge
+

@@ -11,6 +11,17 @@ services:
       - ./.env/:/vpn
     networks:
       - vpn_network
+  adt_send_hw:
+    build: ./adt_send_hw
+    volumes:
+      - ./.env/:/adt_send_hw/
+    networks:
+      - vpn_network
+    depends_on:
+      - vpn
+    environment:
+      ENV_PATH: /adt_send_hw/.env/adt_send_hw.env
+
 
 networks:
   vpn_network:
